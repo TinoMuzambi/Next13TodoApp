@@ -1,4 +1,17 @@
+import { prisma } from "@/utils/db";
+import { redirect } from "next/navigation";
 import Link from "next/link";
+
+async function createTodo(data: FormData) {
+	"use server";
+	const title = data.get("title")?.valueOf();
+	if (typeof title !== "string" || title.length === 0) {
+		throw new Error("Invalid title");
+	}
+
+	await prisma.todo.create({ data: { title, complete: false } });
+	redirect("/");
+}
 
 const New: React.FC = (): JSX.Element => {
 	return (
@@ -6,7 +19,7 @@ const New: React.FC = (): JSX.Element => {
 			<header className="flex justify-between items-center mb-4">
 				<h1 className="text-2xl">New</h1>
 			</header>
-			<form action="" className="flex gap-2 flex-col">
+			<form action={createTodo} className="flex gap-2 flex-col">
 				<input
 					type="text"
 					name="title"
