@@ -1,11 +1,6 @@
 "use client";
 
-type TodoItemProps = {
-	id: string;
-	title: string;
-	complete: boolean;
-	toggleTodo: (id: string, complete: boolean) => void;
-};
+import { TodoItemProps } from "@/interfaces";
 
 const TodoItem = ({ id, title, complete, toggleTodo }: TodoItemProps) => {
 	return (

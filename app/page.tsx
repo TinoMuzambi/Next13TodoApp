@@ -6,6 +6,7 @@ import { getTodos, toggleTodo } from "@/functions";
 const Home = async () => {
 	// await prisma.todo.create({ data: { title: "Test", complete: false } });
 	const todos = await getTodos();
+
 	return (
 		<>
 			<header className="flex justify-between items-center mb-4">
