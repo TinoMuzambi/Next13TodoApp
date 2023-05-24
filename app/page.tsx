@@ -1,6 +1,9 @@
+import { prisma } from "@/utils/db";
 import Link from "next/link";
 
-const Home: React.FC = (): JSX.Element => {
+const Home = async () => {
+	const todos = await prisma.todo.findMany();
+
 	return (
 		<>
 			<header className="flex justify-between items-center mb-4">
@@ -12,7 +15,11 @@ const Home: React.FC = (): JSX.Element => {
 					New
 				</Link>
 			</header>
-			<ul className="pl-4"></ul>
+			<ul className="pl-4">
+				{todos.map((todo) => (
+					<li key={todo.id}>{todo.title}</li>
+				))}
+			</ul>
 		</>
 	);
 };
