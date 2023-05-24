@@ -5,6 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
 	title: "Todo App",
+	description: "A simple todo app for learning how to use Next.js 13.",
 };
 
 export default function RootLayout({
