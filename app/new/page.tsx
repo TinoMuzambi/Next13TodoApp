@@ -23,7 +23,7 @@ const New: React.FC = (): JSX.Element => {
 				<input
 					type="text"
 					name="title"
-					className="border border-slate-300 bg-transparent px-2 py-1 rounded  focus-within:bg-slate-100 outline-none"
+					className="border border-slate-300 bg-transparent px-2 py-1 rounded  focus-within:bg-slate-700 outline-none"
 				/>
 				<div className="flex gap-1 justify-end">
 					<Link
