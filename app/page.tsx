@@ -1,16 +1,7 @@
-import TodoItem from "@/components/TodoItem";
-import { prisma } from "@/utils/db";
 import Link from "next/link";
 
-const getTodos = () => {
-	return prisma.todo.findMany();
-};
-
-async function toggleTodo(id: string, complete: boolean) {
-	"use server";
-
-	await prisma.todo.update({ where: { id }, data: { complete } });
-}
+import TodoItem from "@/components/TodoItem";
+import { getTodos, toggleTodo } from "@/functions";
 
 const Home = async () => {
 	// await prisma.todo.create({ data: { title: "Test", complete: false } });
